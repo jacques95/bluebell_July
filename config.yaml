@@ -1,6 +1,9 @@
 name: bluebell
 mode: "dev"
+version: "v0.0.1"
 port: 8080
+start_time: "2022-06-29"
+machine_id: 1
 
 log:
   level: "debug"

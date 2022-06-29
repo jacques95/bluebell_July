@@ -9,10 +9,12 @@ import (
 var Conf = new(AppConfig)
 
 type AppConfig struct {
-	Name    string `mapstructure:"name"`
-	Mode    string `mapstructure:"mode"`
-	Version string `mapstructure:"version"`
-	Port    int    `mapstructure:"port"`
+	Name      string `mapstructure:"name"`
+	Mode      string `mapstructure:"mode"`
+	Version   string `mapstructure:"version"`
+	StartTime string `mapstructure:"start_time"`
+	MachineID int64  `mapstructure:"machine_id"`
+	Port      int    `mapstructure:"port"`
 
 	*LogConfig   `mapstructure:"log"`
 	*MySQLConfig `mapstructure:"mysql"`
@@ -59,6 +61,8 @@ func Init() (err error) {
 
 	// 监控配置文件是否修改
 	viper.WatchConfig()
+
+	//	加载修改后的配置信息
 	viper.OnConfigChange(func(in fsnotify.Event) {
 		fmt.Println("The config.yaml has been modified.")
 		if err := viper.Unmarshal(Conf); err != nil {

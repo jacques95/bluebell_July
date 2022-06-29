@@ -6,3 +6,11 @@
 {"level":"INFO","time":"2022-06-29T16:47:36.090+0800","caller":"logger/logger.go:65","msg":"/","status":200,"method":"GET","path":"/","query":"","ip":"::1","usr-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36","errors":"","const":0}
 {"level":"INFO","time":"2022-06-29T16:48:37.492+0800","caller":"bluebell/main.go:69","msg":"Shutdown Server."}
 {"level":"INFO","time":"2022-06-29T16:48:37.495+0800","caller":"bluebell/main.go:78","msg":"Server exiting"}
+{"level":"INFO","time":"2022-06-29T17:06:34.891+0800","caller":"bluebell/main.go:69","msg":"Shutdown Server."}
+{"level":"INFO","time":"2022-06-29T17:06:34.913+0800","caller":"bluebell/main.go:78","msg":"Server exiting"}
+{"level":"INFO","time":"2022-06-29T17:07:14.836+0800","caller":"bluebell/main.go:69","msg":"Shutdown Server."}
+{"level":"INFO","time":"2022-06-29T17:07:14.858+0800","caller":"bluebell/main.go:78","msg":"Server exiting"}
+{"level":"INFO","time":"2022-06-29T17:07:43.159+0800","caller":"bluebell/main.go:69","msg":"Shutdown Server."}
+{"level":"INFO","time":"2022-06-29T17:07:43.178+0800","caller":"bluebell/main.go:78","msg":"Server exiting"}
+{"level":"INFO","time":"2022-06-29T21:28:41.220+0800","caller":"bluebell/main.go:80","msg":"Shutdown Server."}
+{"level":"INFO","time":"2022-06-29T21:28:41.242+0800","caller":"bluebell/main.go:89","msg":"Server exiting"}

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bluebell/controller"
 	"bluebell/dao/mysql"
 	"bluebell/dao/redis"
 	"bluebell/logger"
@@ -57,10 +58,16 @@ func main() {
 		return
 	}
 
-	//	6、注册路由
+	//	6、初始化 gin.validator i18
+	if err := controller.InitTrans("zh"); err != nil {
+		fmt.Printf("init validator trans failed, err:%v\n", err)
+		return
+	}
+
+	//	7、注册路由
 	r := routes.Setup()
 
-	//	7、启动服务
+	//	8、启动服务
 	srv := &http.Server{
 		Addr: fmt.Sprintf(":%d",
 			viper.GetInt("port"),

@@ -4,22 +4,32 @@ import (
 	"bluebell/logic"
 	"bluebell/models"
 	"github.com/gin-gonic/gin"
+	"github.com/go-playground/validator/v10"
 	"go.uber.org/zap"
 	"net/http"
 )
 
 func SignUpHandler(c *gin.Context) {
 	// 参数接收并校验
-	var p models.ParamSignUp
-	if err := c.ShouldBindJSON(&p); err != nil {
+	p := new(models.ParamSignUp)
+	if err := c.ShouldBindJSON(p); err != nil {
 		zap.L().Error("SignUp with invalid param", zap.Error(err))
+
+		// 判断 err 是否为 validator.Validate
+		errs, ok := err.(validator.ValidationErrors)
+		if !ok {
+			c.JSONP(http.StatusOK, gin.H{
+				"msg": err.Error(),
+			})
+			return
+		}
 		c.JSONP(http.StatusOK, gin.H{
-			"msg": "invalid param.",
+			"msg": removeTopStruct(errs.Translate(trans)),
 		})
 		return
 	}
 	// 业务处理
-	logic.Signup()
+	logic.Signup(p)
 	// 返回响应
 	c.JSONP(http.StatusOK, "ok")
 }
